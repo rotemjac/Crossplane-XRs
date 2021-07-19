@@ -66,7 +66,7 @@ spec:
                   maintenanceWindow:
                     type: string
                     description: ""
-                    default: "ddd:hh24:mi-ddd:hh24:mi" # "Mon:00:00-Mon:03:00"
+                    default: "Mon:00:00-Mon:03:00"
 
 
                 # --- #
