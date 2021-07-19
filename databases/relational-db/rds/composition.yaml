@@ -1,0 +1,95 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: compositedivvysqlinstances.aws.platformref.crossplane.io
+  labels:
+    provider: aws
+spec:
+  writeConnectionSecretsToNamespace: crossplane-system
+
+  compositeTypeRef:
+    apiVersion: aws.platformref.crossplane.io/v1alpha1
+    kind: CompositeDivvySQLInstance
+
+  resources:
+    # Create a subnetGroup (pass it an existing VPC id)
+    - base:
+        apiVersion: database.aws.crossplane.io/v1beta1
+        kind: DBSubnetGroup
+        spec:
+          forProvider:
+            # No default fields..
+
+            description: An excellent formation of subnetworks.
+          deletionPolicy: Delete
+      patches:
+        - fromFieldPath: "spec.parameters.networkRef.id"
+          toFieldPath: spec.forProvider.subnetIdSelector.matchLabels[networks.aws.platformref.crossplane.io/network-id]
+
+        - fromFieldPath: "spec.parameters.region"
+          toFieldPath: "spec.forProvider.region"
+
+    - base:
+        apiVersion: database.aws.crossplane.io/v1beta1
+        kind: RDSInstance
+        spec:
+          forProvider:
+            dbSubnetGroupNameSelector:
+              matchControllerRef: true
+
+            # ------------- From Divvy's spec ------------- #
+            engine: mysql
+            engineVersion: "5.7.23"
+            dbInstanceClass: db.t2.large #db.m6g not supported for below 8.0.17
+            storageType: gp2
+            allocatedStorage: 100
+            publiclyAccessible: false
+            masterUsername: 'divvy'
+            dbName: 'divvy'
+            enableIAMDatabaseAuthentication: false
+            storageEncrypted: true
+            backupRetentionPeriod: 7
+            monitoringInterval: 0
+            enablePerformanceInsights: false
+            cloudwatchLogsExportConfiguration:
+              enableLogTypes: ['slowquery']
+              disableLogTypes: ['error']
+            autoMinorVersionUpgrade: false
+            deletionProtection: true
+            # skipFinalSnapshotBeforeDeletion: true
+
+          deletionPolicy: Delete
+
+      patches:
+        # --------------------------------------------------------------------------------- #
+        - fromFieldPath: "metadata.uid"
+          toFieldPath: "spec.writeConnectionSecretToRef.name"
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-divvy-mysql"
+
+        - fromFieldPath: spec.writeConnectionSecretToRef.namespace
+          toFieldPath: spec.writeConnectionSecretToRef.namespace
+
+        - fromFieldPath: "spec.parameters.networkRef.id"
+          toFieldPath: spec.forProvider.vpcSecurityGroupIDSelector.matchLabels[networks.aws.platformref.crossplane.io/network-id]
+          # --------------------------------------------------------------------------------- #
+
+        - fromFieldPath: "spec.parameters.region"
+          toFieldPath: "spec.forProvider.region"
+
+        - fromFieldPath: "spec.parameters.storageGB"
+          toFieldPath: "spec.forProvider.allocatedStorage"
+
+        - fromFieldPath: "spec.parameters.multiAZ"
+          toFieldPath: "spec.forProvider.multiAZ"
+
+        - fromFieldPath: "spec.parameters.maintenanceWindow"
+          toFieldPath: "spec.forProvider.preferredMaintenanceWindow"
+
+      connectionDetails:
+        - fromConnectionSecretKey: username
+        - fromConnectionSecretKey: password
+        - fromConnectionSecretKey: endpoint
+        - fromConnectionSecretKey: port
