@@ -23,8 +23,11 @@ spec:
             description: An excellent formation of subnetworks.
           deletionPolicy: Delete
       patches:
-        - fromFieldPath: "spec.parameters.networkRef.id"
-          toFieldPath: spec.forProvider.subnetIdSelector.matchLabels[networks.aws.platformref.crossplane.io/network-id]
+        #- fromFieldPath: "spec.parameters.networkRef.id"
+        #  toFieldPath: spec.forProvider.subnetIdSelector.matchLabels[networks.aws.platformref.crossplane.io/network-id]
+
+        - fromFieldPath: "spec.parameters.subnetIds"
+          toFieldPath: "spec.forProvider.subnetIds"
 
         - fromFieldPath: "spec.parameters.region"
           toFieldPath: "spec.forProvider.region"

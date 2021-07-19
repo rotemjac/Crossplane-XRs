@@ -32,15 +32,21 @@ spec:
                 # --- #
                 properties:
 
-                  networkRef:
-                    type: object
-                    description: "A reference to the Network object that this postgres should be connected to."
-                    properties:
-                      id:
-                        type: string
-                        description: ID of the Network object this ref points to.
-                    required:
-                    - id
+                  #networkRef:
+                  #  type: object
+                  #  description: "A reference to the Network object that this postgres should be connected to."
+                  #  properties:
+                  #    id:
+                  #      type: string
+                  #      description: ID of the Network object this ref points to.
+                  #  required:
+                  #  - id
+
+                  subnetIds:
+                    type: array
+                    description: ""
+                    items:
+                      type: string
 
                   region:
                     type: string
@@ -65,7 +71,8 @@ spec:
 
                 # --- #
                 required:
-                  - networkRef
+                  #- networkRef
+                  - subnetIds
                   - region
                 # --------------------------------------------------------------------------------- #
             required:
