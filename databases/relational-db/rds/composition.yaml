@@ -75,8 +75,8 @@ spec:
         - fromFieldPath: spec.writeConnectionSecretToRef.namespace
           toFieldPath: spec.writeConnectionSecretToRef.namespace
 
-        - fromFieldPath: "spec.parameters.networkRef.id"
-          toFieldPath: spec.forProvider.vpcSecurityGroupIDSelector.matchLabels[networks.aws.platformref.crossplane.io/network-id]
+        #- fromFieldPath: "spec.parameters.networkRef.id"
+        #  toFieldPath: spec.forProvider.vpcSecurityGroupIDSelector.matchLabels[networks.aws.platformref.crossplane.io/network-id]
           # --------------------------------------------------------------------------------- #
 
         - fromFieldPath: "spec.parameters.region"
