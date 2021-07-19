@@ -1,0 +1,34 @@
+From here: https://docs.divvycloud.com/v20.1/docs/server-and-network-recommendations#specific-recommendations-for-aws-deployment
+
+1) RDS - MySQL
+2) Production - MySQL
+3) MySQL, v5.7.23
+4) db.m5.large (2 vCPU, 8 GB Memory)
+5) Multi-AZ Deployment NOT required
+6) 100GB storage
+7) Choose the same VPC where the UI, Scheduler, and Workers will run
+8) Public Accessibility - No
+9) Availability Zone - Same AZ as UI, Schedulers and Workers
+10) Database Name - divvy
+11) IAM DB Authentication - Disable
+12) Encryption - Enable Encryption
+13) Backup Retention - 7 Days
+14) Disable Enhanced Monitoring
+15) Disable Performance Insights
+16) Error Log enabled
+17) Slow Query Log enabled
+18) Disable auto minor version upgrade
+19) Choose appropriate maintenance window
+20) Enable Deletion Protection
+----------------------------------------------------------------------------------------
+From here: https://docs.divvycloud.com/v20.1/docs/gke-deployment
+
+Engine: MySQL
+Version: 5.7
+Instance type: db-n1-standard-4
+Volume: 100 GB
+Autoscaling:
+    Minimum number of nodes: 2
+    Max number of nodes: 6
+
+
