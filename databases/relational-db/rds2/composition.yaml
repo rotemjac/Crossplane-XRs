@@ -3,7 +3,7 @@ kind: Composition
 metadata:
   name: compositedivvysqlinstances2.aws.platformref.crossplane.io
   labels:
-    provider: aws
+    provider: aws-provider-config
 spec:
   writeConnectionSecretsToNamespace: crossplane-system
 
