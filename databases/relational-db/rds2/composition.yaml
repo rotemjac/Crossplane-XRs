@@ -3,7 +3,7 @@ kind: Composition
 metadata:
   name: compositedivvysqlinstances2.aws.platformref.crossplane.io
   labels:
-    provider: aws-provider-config
+    provider: aws
 spec:
   writeConnectionSecretsToNamespace: crossplane-system
 
@@ -21,6 +21,8 @@ spec:
             # No default fields..
 
             description: An excellent formation of subnetworks.
+          providerConfigRef:
+            name: aws-provider-config
           deletionPolicy: Delete
       patches:
         #- fromFieldPath: "spec.parameters.networkRef.id"
@@ -61,6 +63,8 @@ spec:
             deletionProtection: true
             # skipFinalSnapshotBeforeDeletion: true
 
+          providerConfigRef:
+            name: aws-provider-config
           deletionPolicy: Delete
 
       patches:
