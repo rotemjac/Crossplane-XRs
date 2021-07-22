@@ -1,15 +1,15 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
 metadata:
-  name: compositedivvysqlinstances.aws.platformref.crossplane.io
+  name: dvcompositesqlinstances.aws.platformref.crossplane.io
   labels:
     provider: aws
 spec:
   writeConnectionSecretsToNamespace: divvy-rds-crossplane-tenant-1
 
   compositeTypeRef:
-    apiVersion: aws.platformref.crossplane.io/v1alpha2
-    kind: CompositeDivvySQLInstance
+    apiVersion: aws.platformref.crossplane.io/v1alpha1
+    kind: DVCompositeSQLInstance
 
   resources:
     # Create a subnetGroup (pass it an existing VPC id)

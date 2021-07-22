@@ -1,11 +1,11 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: compositedivvysqlinstances.aws.platformref.crossplane.io
+  name: dvcompositesqlinstances.aws.platformref.crossplane.io
 spec:
   claimNames:
-    kind: DivvySQLInstance
-    plural: divvysqlinstances
+    kind: DVSQLInstance
+    plural: dvsqlinstances
   connectionSecretKeys:
     - username
     - password
@@ -13,10 +13,10 @@ spec:
     - port
   group: aws.platformref.crossplane.io
   names:
-    kind: CompositeDivvySQLInstance
-    plural: compositedivvysqlinstances
+    kind: DVCompositeSQLInstance
+    plural: dvcompositesqlinstances
   versions:
-  - name: v1alpha2
+  - name: v1alpha1
     served: true
     referenceable: true
     schema:
