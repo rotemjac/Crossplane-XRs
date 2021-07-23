@@ -4,8 +4,8 @@ metadata:
   name: dvpubliccompositesqlinstances.aws.platformref.crossplane.io
 spec:
   claimNames:
-    kind: DVSQLInstance
-    plural: dvsqlinstances
+    kind: DVPublicSQLInstance
+    plural: dvpublicsqlinstances
   connectionSecretKeys:
     - username
     - password
