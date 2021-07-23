@@ -63,6 +63,11 @@ spec:
                     description: ""
                     default: false
 
+                  publiclyAccessible:
+                    type: boolean
+                    description: ""
+                    default: true
+
                   maintenanceWindow:
                     type: string
                     description: ""
