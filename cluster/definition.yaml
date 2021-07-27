@@ -23,28 +23,22 @@ spec:
             spec:
               type: object
               properties:
-
                 id:
                   type: string
                   description: ID of this Cluster that other objects will use to refer to it.
-
                 namespace:
                   type: string
                   description: Namespace of this Cluster were secrets will be saved to.
-
                 parameters:
                   type: object
                   description: Cluster configuration parameters.
                   properties:
-
                     region:
                       type: string
                       description: The cluster region.
                       enum: ["us-east-1","us-east-2","eu-west-1"]
-
                   required:
                     - region
-
               required:
                 - id
                 - namespace
