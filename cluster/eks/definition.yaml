@@ -1,0 +1,112 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: eks.aws.platformref.crossplane.io
+spec:
+  connectionSecretKeys:
+    - kubeconfig
+  group: aws.platformref.crossplane.io
+  names:
+    kind: CompositeEKS
+    plural: compositeeks
+  versions:
+    - name: v1alpha1
+      served: true
+      referenceable: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+
+                ###
+                namespace:
+                  type: string
+                  description: Namespace to save secrets to.
+
+                ###
+                id:
+                  type: string
+                  description: ID of this Cluster that other objects will use to refer to it.
+
+                ###
+                networkRef:
+                  type: object
+                  description: "A reference to the Network object that this cluster should be connected to."
+                  properties:
+                    id:
+                      type: string
+                      description: ID of the Network object this ref points to.
+                  required:
+                    - id
+
+                ###
+                parameters:
+                  type: object
+                  description: EKS configuration parameters.
+                  properties:
+
+                    region:
+                      type: string
+                      description: EKS region
+                      enum: ["us-east-1","us-east-2","eu-west-1"]
+
+                    version:
+                      type: string
+                      description: The K8S version
+                      enum: ["1.16","1.17","1.18","1.19","1.20"]
+                      default: "1.18"
+
+                    nodes:
+                      type: object
+                      description: EKS node configuration parameters.
+                      properties:
+                        scalingConfig:
+                          type: object
+                          description: EKS node scaling configuration parameters.
+                          properties:
+                            minSize:
+                              type: integer
+                              description: Min value of scaling config
+                              default: 1
+                            maxSize:
+                              type: integer
+                              description: Max value of scaling config
+                              default: 100
+                            desiredSize:
+                              type: integer
+                              description: desired size scaling config
+                              default: 3
+
+                        instanceType:
+                          type: string #TODO: Change to string[] like in the provider
+                          description: The specific instance type for ALL node (will be changed)
+                          default: t3.medium
+                          enum: ["t3.nano,t3.micro,t3.small","t3.medium,t3.large,t3.xlarge","t3.2xlarge",
+                                 "t3a.nano,t3a.micro,t3a.small","t3a.medium,t3a.large,t3a.xlarge","t3a.2xlarge",
+                                 "t4g.nano,t4g.micro,t4g.small","t4g.medium,t4g.large,t4g.xlarge","t4g.2xlarge",
+                                 "m5.large","m5.xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge",
+                                 "m6g.medium","m6g.large","m6g.xlarge","m6g.2xlarge","m6g.4xlarge","m6g.8xlarge"
+                          ]
+
+                        diskSize:
+                          type: integer
+                          description: The disk size
+                          default: 20
+                          minimum: 5
+                          maximum: 50
+
+                      required:
+                        - scalingConfig
+
+                  required:
+                    - nodes
+                    - region
+
+              required:
+                - namespace
+                - id
+                - networkRef
+                - parameters
