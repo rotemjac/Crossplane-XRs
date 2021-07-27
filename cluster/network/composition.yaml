@@ -166,7 +166,7 @@ spec:
 
       ### Route Table ###
     - base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.crossplane.io/v1alpha4
         kind: RouteTable
         spec:
           forProvider:
