@@ -42,9 +42,6 @@ spec:
                       description: The cluster region.
                       enum: ["us-east-1","us-east-2","eu-west-1"]
 
-                    #Will take id, namespace, region from parent object alongside other fields will be internally patched
-                    # network:
-
                     eks:
                       type: object
                       description: EKS node configuration parameters.
@@ -91,23 +88,6 @@ spec:
                           maximum: 50
                       required:
                         - scalingConfig
-
-
-                    #services:
-                    #  type: object
-                    #  description: Services configuration parameters.
-                    #  properties:
-                    #    operators:
-                    #      type: object
-                    #      description: Configuration for operators.
-                    #      properties:
-                    #        prometheus:
-                    #          type: object
-                    #          description: Configuration for the Prometheus operator.
-                    #          properties:
-                    #            version:
-                    #              type: string
-                    #              description: Prometheus operator version to run.
 
                   required:
                     - region
