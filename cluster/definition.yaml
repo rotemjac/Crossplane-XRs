@@ -2,7 +2,6 @@ apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
   name: cwpcompositeclusters.aws.platformref.crossplane.io
-  annotations:
 spec:
   claimNames:
     kind: CwpCluster
@@ -37,6 +36,11 @@ spec:
                   type: object
                   description: Cluster configuration parameters.
                   properties:
+
+                    region:
+                      type: string
+                      description: The cluster region.
+                      enum: ["us-east-1","us-east-2","eu-west-1"]
 
                     #Will take id, namespace, region from parent object alongside other fields will be internally patched
                     # network:
@@ -106,6 +110,7 @@ spec:
                     #              description: Prometheus operator version to run.
 
                   required:
+                    - region
                     - eks
 
               required:
