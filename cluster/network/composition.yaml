@@ -9,6 +9,17 @@ spec:
   compositeTypeRef:
     apiVersion: aws.platformref.crossplane.io/v1alpha1
     kind: CompositeNetwork
+
+  patchSets:
+    - name: providerConfig
+      patches:
+      - fromFieldPath: spec.id
+        toFieldPath: spec.providerConfigRef.name
+        transforms:
+          - type: string
+            string:
+              fmt: "%s-aws-provider-config"
+
   resources:
 
     ### VPC ###
@@ -26,6 +37,10 @@ spec:
 
         - fromFieldPath: "spec.parameters.region"
           toFieldPath: spec.forProvider.region
+
+        - type: PatchSet
+          patchSetName: providerConfig
+
     ### Internet Gateway ###
     - base:
         apiVersion: ec2.aws.crossplane.io/v1beta1
@@ -40,6 +55,9 @@ spec:
 
         - fromFieldPath: "spec.parameters.region"
           toFieldPath: spec.forProvider.region
+
+        - type: PatchSet
+          patchSetName: providerConfig
 
       ### Subnet A ###
     - base:
@@ -81,6 +99,8 @@ spec:
             - type: string
               string:
                 fmt: "kubernetes.io/cluster/%s"
+        - type: PatchSet
+          patchSetName: providerConfig
 
       ### Subnet B ###
     - base:
@@ -123,6 +143,9 @@ spec:
               string:
                 fmt: "kubernetes.io/cluster/%s"
 
+        - type: PatchSet
+          patchSetName: providerConfig
+
       ### Subnet C ###
     - base:
         apiVersion: ec2.aws.crossplane.io/v1beta1
@@ -164,6 +187,9 @@ spec:
               string:
                 fmt: "kubernetes.io/cluster/%s"
 
+        - type: PatchSet
+          patchSetName: providerConfig
+
       ### Route Table ###
     - base:
         apiVersion: ec2.aws.crossplane.io/v1alpha4
@@ -200,6 +226,9 @@ spec:
 
         - fromFieldPath: "spec.parameters.region"
           toFieldPath: spec.forProvider.region
+
+        - type: PatchSet
+          patchSetName: providerConfig
 
       ### Security Group - leave for now ###
     #- base:
