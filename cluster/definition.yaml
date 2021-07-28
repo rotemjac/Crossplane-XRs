@@ -111,6 +111,7 @@ spec:
 
                   required:
                     - region
+                    - eks
 
               required:
                 - id

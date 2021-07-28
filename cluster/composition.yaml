@@ -23,7 +23,7 @@ spec:
         - fromFieldPath: spec.id
           toFieldPath: spec.clusterRef.id # Notice here  (== parnet spec.id)
 
-        - fromFieldPath: spec.region
+        - fromFieldPath: spec.parameters.region
           toFieldPath: spec.parameters.region
 
     - base:
@@ -44,7 +44,7 @@ spec:
         - fromFieldPath: spec.id
           toFieldPath: spec.networkRef.id # Notice here (== parnet spec.id)
 
-        - fromFieldPath: spec.region
+        - fromFieldPath: spec.parameters.region
           toFieldPath: spec.parameters.region
 
         - fromFieldPath: spec.version
