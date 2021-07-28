@@ -26,6 +26,39 @@ spec:
         - fromFieldPath: spec.region
           toFieldPath: spec.parameters.region
 
+    - base:
+        apiVersion: aws.platformref.crossplane.io/v1alpha1
+        kind: CompositeEKS
+      connectionDetails:
+        - fromConnectionSecretKey: kubeconfig
+      patches:
+        - fromFieldPath: spec.namespace
+          toFieldPath: spec.namespace
+
+        - fromFieldPath: spec.id
+          toFieldPath: metadata.annotations[crossplane.io/external-name]
+
+        - fromFieldPath: spec.id
+          toFieldPath: spec.id
+
+        - fromFieldPath: spec.id
+          toFieldPath: spec.networkRef.id # Notice here (== parnet spec.id)
+
+        - fromFieldPath: spec.region
+          toFieldPath: spec.parameters.region
+
+        - fromFieldPath: spec.version
+          toFieldPath: spec.parameters.version
+
+        - fromFieldPath: spec.parameters.nodes.scalingConfig
+          toFieldPath: spec.parameters.nodes.scalingConfig
+
+        - fromFieldPath: spec.parameters.nodes.instanceType
+          toFieldPath: spec.parameters.nodes.instanceType
+
+        - fromFieldPath: spec.parameters.nodes.diskSize
+          toFieldPath: spec.parameters.nodes.diskSize
+
 
     #- base:
     #    apiVersion: aws.platformref.crossplane.io/v1alpha1

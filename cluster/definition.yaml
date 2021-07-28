@@ -23,22 +23,97 @@ spec:
             spec:
               type: object
               properties:
+
                 id:
                   type: string
                   description: ID of this Cluster that other objects will use to refer to it.
+
                 namespace:
                   type: string
                   description: Namespace of this Cluster were secrets will be saved to.
+
                 parameters:
                   type: object
                   description: Cluster configuration parameters.
                   properties:
+
                     region:
                       type: string
                       description: The cluster region.
                       enum: ["us-east-1","us-east-2","eu-west-1"]
+
+                    #Will take id, namespace, region from parent object alongside other fields will be internally patched
+                    # network:
+
+                    eks:
+                      type: object
+                      description: EKS node configuration parameters.
+                      properties:
+                        # Belongs to the eks.cluster object
+                        version:
+                          type: string
+                          description: The K8S version
+                          enum: ["1.16","1.17","1.18","1.19","1.20"]
+                          default: "1.18"
+
+                        # Belongs to the eks.nodes object
+                        scalingConfig:
+                          type: object
+                          description: EKS node scaling configuration parameters.
+                          properties:
+                            minSize:
+                              type: integer
+                              description: Min value of scaling config
+                              default: 1
+                            maxSize:
+                              type: integer
+                              description: Max value of scaling config
+                              default: 100
+                            desiredSize:
+                              type: integer
+                              description: desired size scaling config
+                              default: 3
+                        instanceType:
+                          type: string #TODO: Change to string[] like in the provider
+                          description: The specific instance type for ALL node (will be changed)
+                          default: t3.medium
+                          enum: ["t3.nano","t3.micro","t3.small","t3.medium","t3.large","t3.xlarge","t3.2xlarge",
+                                 "t3a.nano","t3a.micro","t3a.small","t3a.medium","t3a.large","t3a.xlarge","t3a.2xlarge",
+                                 "t4g.nano","t4g.micro","t4g.small","t4g.medium","t4g.large","t4g.xlarge","t4g.2xlarge",
+                                 "m5.large","m5.xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge",
+                                 "m6g.medium","m6g.large","m6g.xlarge","m6g.2xlarge","m6g.4xlarge","m6g.8xlarge"
+                          ]
+                        diskSize:
+                          type: integer
+                          description: The disk size
+                          default: 20
+                          minimum: 5
+                          maximum: 50
+                      required:
+                        - scalingConfig
+
+
+                    #services:
+                    #  type: object
+                    #  description: Services configuration parameters.
+                    #  properties:
+                    #    operators:
+                    #      type: object
+                    #      description: Configuration for operators.
+                    #      properties:
+                    #        prometheus:
+                    #          type: object
+                    #          description: Configuration for the Prometheus operator.
+                    #          properties:
+                    #            version:
+                    #              type: string
+                    #              description: Prometheus operator version to run.
+
                   required:
                     - region
+                    - eks
+
               required:
                 - id
                 - namespace
+                - parameters
