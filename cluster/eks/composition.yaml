@@ -31,10 +31,10 @@ spec:
         # -------------------- ConnectionSecret -------------------- #
         - fromFieldPath: spec.id # Replaced: metadata.uid
           toFieldPath: spec.writeConnectionSecretToRef.name
-          #transforms:
-          #  - type: string
-          #    string:
-          #      fmt: "%s-ekscluster"
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-secret"
 
         - fromFieldPath: spec.namespace
           toFieldPath: spec.writeConnectionSecretToRef.namespace
@@ -99,33 +99,6 @@ spec:
               matchControllerRef: true
               matchLabels:
                 role: controlplaneRole
-
-    - base:
-        apiVersion: helm.crossplane.io/v1beta1
-        kind: ProviderConfig
-        spec:
-          credentials:
-            source: Secret
-            secretRef:
-              key: kubeconfig
-      patches:
-        - fromFieldPath: spec.id
-          toFieldPath: metadata.name
-
-        - fromFieldPath: spec.writeConnectionSecretToRef.namespace
-          toFieldPath: spec.credentials.secretRef.namespace
-        # This ProviderConfig uses the above EKS cluster's connection secret as
-        # its credentials secret.
-
-        - fromFieldPath: "metadata.uid"
-          toFieldPath: spec.credentials.secretRef.name
-          transforms:
-            - type: string
-              string:
-                fmt: "%s-ekscluster"
-      readinessChecks:
-        - type: None
-
 
     - base:
         apiVersion: eks.aws.crossplane.io/v1alpha1
@@ -232,3 +205,33 @@ spec:
               matchControllerRef: true
               matchLabels:
                 role: nodegroup
+
+    # ------------------------------------------------------------------ #
+    # Use the parent spec.id and spec.namespace
+    - base:
+        apiVersion: helm.crossplane.io/v1beta1
+        kind: ProviderConfig
+        spec:
+          credentials:
+            source: Secret
+            secretRef:
+              key: kubeconfig
+      patches:
+        - fromFieldPath: spec.id
+          toFieldPath: metadata.name
+
+        - fromFieldPath: spec.id
+          toFieldPath: spec.credentials.secretRef.name
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-secret" #Need to be identical to what we're creating in the eks cluster above
+
+        - fromFieldPath: spec.namespace
+          toFieldPath: spec.credentials.secretRef.namespace
+        # This ProviderConfig uses the above EKS cluster's connection secret as
+        # its credentials secret.
+
+      readinessChecks:
+        - type: None
+    # ------------------------------------------------------------------ #
