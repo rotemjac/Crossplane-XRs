@@ -47,16 +47,16 @@ spec:
         - fromFieldPath: spec.parameters.region
           toFieldPath: spec.parameters.region
 
-        - fromFieldPath: spec.version
+        - fromFieldPath: spec.parameters.eks.version
           toFieldPath: spec.parameters.version
 
-        - fromFieldPath: spec.parameters.nodes.scalingConfig
+        - fromFieldPath: spec.parameters.eks.scalingConfig
           toFieldPath: spec.parameters.nodes.scalingConfig
 
-        - fromFieldPath: spec.parameters.nodes.instanceType
+        - fromFieldPath: spec.parameters.eks.instanceType
           toFieldPath: spec.parameters.nodes.instanceType
 
-        - fromFieldPath: spec.parameters.nodes.diskSize
+        - fromFieldPath: spec.parameters.eks.diskSize
           toFieldPath: spec.parameters.nodes.diskSize
 
 
