@@ -9,6 +9,17 @@ spec:
   compositeTypeRef:
     apiVersion: aws.platformref.crossplane.io/v1alpha1
     kind: CompositeEKS
+
+  patchSets:
+    - name: providerConfig
+      patches:
+        - fromFieldPath: spec.id
+          toFieldPath: spec.providerConfigRef.name
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-aws-provider-config"
+
   resources:
 
     - base:
@@ -50,6 +61,8 @@ spec:
         #- fromFieldPath: "spec.parameters.networkRef.id"
         #  toFieldPath: spec.forProvider.resourcesVpcConfig.securityGroupIdSelector.matchLabels[networks.aws.platformref.crossplane.io/network-id]
 
+        - type: PatchSet
+          patchSetName: providerConfig
 
       connectionDetails:
         - fromConnectionSecretKey: kubeconfig
@@ -79,6 +92,11 @@ spec:
                     }
                 ]
               }
+
+      patches:
+        - type: PatchSet
+          patchSetName: providerConfig
+
     - base:
         apiVersion: identity.aws.crossplane.io/v1beta1
         kind: IAMRolePolicyAttachment
@@ -89,6 +107,11 @@ spec:
               matchControllerRef: true
               matchLabels:
                 role: controlplaneRole
+
+      patches:
+        - type: PatchSet
+          patchSetName: providerConfig
+
     - base:
         apiVersion: identity.aws.crossplane.io/v1beta1
         kind: IAMRolePolicyAttachment
@@ -99,6 +122,10 @@ spec:
               matchControllerRef: true
               matchLabels:
                 role: controlplaneRole
+
+      patches:
+        - type: PatchSet
+          patchSetName: providerConfig
 
     - base:
         apiVersion: eks.aws.crossplane.io/v1alpha1
@@ -150,6 +177,9 @@ spec:
         - fromFieldPath: "spec.parameters.nodes.diskSize"
           toFieldPath: "spec.forProvider.diskSize"
 
+        - type: PatchSet
+          patchSetName: providerConfig
+
     - base:
         apiVersion: identity.aws.crossplane.io/v1beta1
         kind: IAMRole
@@ -175,6 +205,11 @@ spec:
                     }
                 ]
               }
+
+      patches:
+        - type: PatchSet
+          patchSetName: providerConfig
+
     - base:
         apiVersion: identity.aws.crossplane.io/v1beta1
         kind: IAMRolePolicyAttachment
@@ -185,6 +220,11 @@ spec:
               matchControllerRef: true
               matchLabels:
                 role: nodegroup
+
+      patches:
+        - type: PatchSet
+          patchSetName: providerConfig
+
     - base:
         apiVersion: identity.aws.crossplane.io/v1beta1
         kind: IAMRolePolicyAttachment
@@ -195,6 +235,11 @@ spec:
               matchControllerRef: true
               matchLabels:
                 role: nodegroup
+
+      patches:
+        - type: PatchSet
+          patchSetName: providerConfig
+
     - base:
         apiVersion: identity.aws.crossplane.io/v1beta1
         kind: IAMRolePolicyAttachment
@@ -205,6 +250,10 @@ spec:
               matchControllerRef: true
               matchLabels:
                 role: nodegroup
+
+      patches:
+        - type: PatchSet
+          patchSetName: providerConfig
 
     # ------------------------------------------------------------------ #
     # Use the parent spec.id and spec.namespace
