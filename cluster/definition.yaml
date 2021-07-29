@@ -92,21 +92,31 @@ spec:
                       required:
                         - scalingConfig
 
-                    #services:
-                    #  type: object
-                    #  description: Services configuration parameters.
-                    #  properties:
-                    #    operators:
-                    #      type: object
-                    #      description: Configuration for operators.
-                    #      properties:
-                    #        prometheus:
-                    #          type: object
-                    #          description: Configuration for the Prometheus operator.
-                    #          properties:
-                    #            version:
-                    #              type: string
-                    #              description: Prometheus operator version to run.
+                    services:
+                      type: object
+                      description: Services configuration parameters.
+                      properties:
+
+                        ##
+                        destination_namespace:
+                          type: string
+                          description: Namespace were all cluster services will be located.
+                          default: "ops"
+
+                        ##
+                        operators:
+                          type: object
+                          description: Configuration for services which runs as operators.
+                          properties:
+
+                            ###
+                            prometheus:
+                              type: object
+                              description: Configuration for the Prometheus operator.
+                              properties:
+                                version:
+                                  type: string
+                                  description: Prometheus operator version to run.
 
                   required:
                     - region

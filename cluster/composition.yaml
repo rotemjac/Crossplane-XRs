@@ -60,11 +60,18 @@ spec:
           toFieldPath: spec.parameters.nodes.diskSize
 
 
-    #- base:
-    #    apiVersion: aws.platformref.crossplane.io/v1alpha1
-    #    kind: Services
-    #  patches:
-    #    - fromFieldPath: spec.id
-    #      toFieldPath: spec.providerConfigRef.name
-    #    - fromFieldPath: spec.parameters.services.operators.prometheus.version
-    #      toFieldPath: spec.operators.prometheus.version
+    - base:
+        apiVersion: aws.platformref.crossplane.io/v1alpha1
+        kind: Services
+
+      patches:
+
+        - fromFieldPath: spec.id
+          toFieldPath: spec.providerConfigRef.name
+
+        - fromFieldPath: spec.parameters.services.destination_namespace
+          toFieldPath: spec.operators.destination_namespace
+
+        - fromFieldPath: spec.parameters.services.operators.prometheus.version
+          toFieldPath: spec.operators.prometheus.version
+
