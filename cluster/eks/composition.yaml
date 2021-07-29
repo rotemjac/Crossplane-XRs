@@ -57,6 +57,9 @@ spec:
         - fromFieldPath: "spec.parameters.region"
           toFieldPath: spec.forProvider.region
 
+        - fromFieldPath: "spec.parameters.version"
+          toFieldPath: spec.forProvider.version
+
         # Take SG from VPC for now
         #- fromFieldPath: "spec.parameters.networkRef.id"
         #  toFieldPath: spec.forProvider.resourcesVpcConfig.securityGroupIdSelector.matchLabels[networks.aws.platformref.crossplane.io/network-id]
@@ -151,9 +154,6 @@ spec:
 
         - fromFieldPath: "spec.parameters.region"
           toFieldPath: spec.forProvider.region
-
-        - fromFieldPath: "spec.parameters.version"
-          toFieldPath: spec.forProvider.version
 
         - fromFieldPath: "spec.parameters.nodes.scalingConfig.minSize"
           toFieldPath: "spec.forProvider.scalingConfig.minSize"
