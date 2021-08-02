@@ -21,31 +21,27 @@ spec:
             #namespace: ops # Set below
             #chart:  {}     # Set below
             #values: {}     # Set below
-        patches:
-          - fromFieldPath: spec.namespace
-            toFieldPath: spec.writeConnectionSecretsToNamespace
-
-          # All Helm releases derive their labels and annotations from the XR.
-          - fromFieldPath: metadata.labels
-            toFieldPath: metadata.labels
-
-          - fromFieldPath: metadata.annotations
-            toFieldPath: metadata.annotations
-
-          # All Helm releases derive the ProviderConfig to use from the XR.
-          - fromFieldPath: spec.providerConfigRef.name
-            toFieldPath: spec.providerConfigRef.name
-
-          - fromFieldPath: spec.destination_namespace
-            toFieldPath: spec.forProvider.namespace
-          - fromFieldPath: spec.aws_node_termination_handler.source_repo
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.aws_node_termination_handler.chart_name
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.aws_node_termination_handler.version
-            toFieldPath: spec.forProvider.chart.version
-          - fromFieldPath: spec.aws_node_termination_handler.values
-            toFieldPath: spec.forProvider.chart.values
+      patches:
+        - fromFieldPath: spec.namespace
+          toFieldPath: spec.writeConnectionSecretsToNamespace
+        # All Helm releases derive their labels and annotations from the XR.
+        - fromFieldPath: metadata.labels
+          toFieldPath: metadata.labels
+        - fromFieldPath: metadata.annotations
+          toFieldPath: metadata.annotations
+        # All Helm releases derive the ProviderConfig to use from the XR.
+        - fromFieldPath: spec.providerConfigRef.name
+          toFieldPath: spec.providerConfigRef.name
+        - fromFieldPath: spec.destination_namespace
+          toFieldPath: spec.forProvider.namespace
+        - fromFieldPath: spec.aws_node_termination_handler.source_repo
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.aws_node_termination_handler.chart_name
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.aws_node_termination_handler.version
+          toFieldPath: spec.forProvider.chart.version
+        - fromFieldPath: spec.aws_node_termination_handler.values
+          toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -87,31 +83,31 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
-        patches:
-          - fromFieldPath: spec.namespace
-            toFieldPath: spec.writeConnectionSecretsToNamespace
+      patches:
+        - fromFieldPath: spec.namespace
+          toFieldPath: spec.writeConnectionSecretsToNamespace
 
           # All Helm releases derive their labels and annotations from the XR.
-          - fromFieldPath: metadata.labels
-            toFieldPath: metadata.labels
+        - fromFieldPath: metadata.labels
+          toFieldPath: metadata.labels
 
-          - fromFieldPath: metadata.annotations
-            toFieldPath: metadata.annotations
+        - fromFieldPath: metadata.annotations
+          toFieldPath: metadata.annotations
 
           # All Helm releases derive the ProviderConfig to use from the XR.
-          - fromFieldPath: spec.providerConfigRef.name
-            toFieldPath: spec.providerConfigRef.name
+        - fromFieldPath: spec.providerConfigRef.name
+          toFieldPath: spec.providerConfigRef.name
 
-          - fromFieldPath: spec.destination_namespace
-            toFieldPath: spec.forProvider.namespace
-          - fromFieldPath: spec.external_dns.source_repo
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.external_dns.chart_name
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.external_dns.version
-            toFieldPath: spec.forProvider.chart.version
-          - fromFieldPath: spec.external_dns.values
-            toFieldPath: spec.forProvider.chart.values
+        - fromFieldPath: spec.destination_namespace
+          toFieldPath: spec.forProvider.namespace
+        - fromFieldPath: spec.external_dns.source_repo
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.external_dns.chart_name
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.external_dns.version
+          toFieldPath: spec.forProvider.chart.version
+        - fromFieldPath: spec.external_dns.values
+          toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -120,64 +116,31 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
-        patches:
-          - fromFieldPath: spec.namespace
-            toFieldPath: spec.writeConnectionSecretsToNamespace
+      patches:
+        - fromFieldPath: spec.namespace
+          toFieldPath: spec.writeConnectionSecretsToNamespace
 
-          # All Helm releases derive their labels and annotations from the XR.
-          - fromFieldPath: metadata.labels
-            toFieldPath: metadata.labels
+        # All Helm releases derive their labels and annotations from the XR.
+        - fromFieldPath: metadata.labels
+          toFieldPath: metadata.labels
 
-          - fromFieldPath: metadata.annotations
-            toFieldPath: metadata.annotations
+        - fromFieldPath: metadata.annotations
+          toFieldPath: metadata.annotations
 
-          # All Helm releases derive the ProviderConfig to use from the XR.
-          - fromFieldPath: spec.providerConfigRef.name
-            toFieldPath: spec.providerConfigRef.name
+        # All Helm releases derive the ProviderConfig to use from the XR.
+        - fromFieldPath: spec.providerConfigRef.name
+          toFieldPath: spec.providerConfigRef.name
 
-          - fromFieldPath: spec.destination_namespace
-            toFieldPath: spec.forProvider.namespace
-          - fromFieldPath: spec.cert_manager.source_repo
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.cert_manager.chart_name
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.cert_manager.version
-            toFieldPath: spec.forProvider.chart.version
-          - fromFieldPath: spec.cert_manager.values
-            toFieldPath: spec.forProvider.chart.values
-
-    - base:
-        apiVersion: helm.crossplane.io/v1beta1
-        kind: Release
-        spec:
-          rollbackLimit: 3
-          forProvider:
-            skipCreateNamespace: false
-        patches:
-          - fromFieldPath: spec.namespace
-            toFieldPath: spec.writeConnectionSecretsToNamespace
-
-          # All Helm releases derive their labels and annotations from the XR.
-          - fromFieldPath: metadata.labels
-            toFieldPath: metadata.labels
-
-          - fromFieldPath: metadata.annotations
-            toFieldPath: metadata.annotations
-
-          # All Helm releases derive the ProviderConfig to use from the XR.
-          - fromFieldPath: spec.providerConfigRef.name
-            toFieldPath: spec.providerConfigRef.name
-
-          - fromFieldPath: spec.destination_namespace
-            toFieldPath: spec.forProvider.namespace
-          - fromFieldPath: spec.ingress_nginx.source_repo
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.ingress_nginx.chart_name
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.ingress_nginx.version
-            toFieldPath: spec.forProvider.chart.version
-          - fromFieldPath: spec.ingress_nginx.values
-            toFieldPath: spec.forProvider.chart.values
+        - fromFieldPath: spec.destination_namespace
+          toFieldPath: spec.forProvider.namespace
+        - fromFieldPath: spec.cert_manager.source_repo
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.cert_manager.chart_name
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.cert_manager.version
+          toFieldPath: spec.forProvider.chart.version
+        - fromFieldPath: spec.cert_manager.values
+          toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -186,63 +149,31 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
-        patches:
-          - fromFieldPath: spec.namespace
-            toFieldPath: spec.writeConnectionSecretsToNamespace
+      patches:
+        - fromFieldPath: spec.namespace
+          toFieldPath: spec.writeConnectionSecretsToNamespace
 
-          # All Helm releases derive their labels and annotations from the XR.
-          - fromFieldPath: metadata.labels
-            toFieldPath: metadata.labels
+        # All Helm releases derive their labels and annotations from the XR.
+        - fromFieldPath: metadata.labels
+          toFieldPath: metadata.labels
 
-          - fromFieldPath: metadata.annotations
-            toFieldPath: metadata.annotations
+        - fromFieldPath: metadata.annotations
+          toFieldPath: metadata.annotations
 
-          # All Helm releases derive the ProviderConfig to use from the XR.
-          - fromFieldPath: spec.providerConfigRef.name
-            toFieldPath: spec.providerConfigRef.name
+        # All Helm releases derive the ProviderConfig to use from the XR.
+        - fromFieldPath: spec.providerConfigRef.name
+          toFieldPath: spec.providerConfigRef.name
 
-          - fromFieldPath: spec.destination_namespace
-            toFieldPath: spec.forProvider.namespace
-          - fromFieldPath: spec.vouch.source_repo
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.vouch.chart_name
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.vouch.version
-            toFieldPath: spec.forProvider.chart.version
-          - fromFieldPath: spec.vouch.values
-            toFieldPath: spec.forProvider.chart.values
-    - base:
-        apiVersion: helm.crossplane.io/v1beta1
-        kind: Release
-        spec:
-          rollbackLimit: 3
-          forProvider:
-            skipCreateNamespace: false
-        patches:
-          - fromFieldPath: spec.namespace
-            toFieldPath: spec.writeConnectionSecretsToNamespace
-
-          # All Helm releases derive their labels and annotations from the XR.
-          - fromFieldPath: metadata.labels
-            toFieldPath: metadata.labels
-
-          - fromFieldPath: metadata.annotations
-            toFieldPath: metadata.annotations
-
-          # All Helm releases derive the ProviderConfig to use from the XR.
-          - fromFieldPath: spec.providerConfigRef.name
-            toFieldPath: spec.providerConfigRef.name
-
-          - fromFieldPath: spec.destination_namespace
-            toFieldPath: spec.forProvider.namespace
-          - fromFieldPath: spec.kubernetes_external_secrets.source_repo
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.kubernetes_external_secrets.chart_name
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.kubernetes_external_secrets.version
-            toFieldPath: spec.forProvider.chart.version
-          - fromFieldPath: spec.kubernetes_external_secrets.values
-            toFieldPath: spec.forProvider.chart.values
+        - fromFieldPath: spec.destination_namespace
+          toFieldPath: spec.forProvider.namespace
+        - fromFieldPath: spec.ingress_nginx.source_repo
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.ingress_nginx.chart_name
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.ingress_nginx.version
+          toFieldPath: spec.forProvider.chart.version
+        - fromFieldPath: spec.ingress_nginx.values
+          toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -251,31 +182,63 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
-        patches:
-          - fromFieldPath: spec.namespace
-            toFieldPath: spec.writeConnectionSecretsToNamespace
+      patches:
+        - fromFieldPath: spec.namespace
+          toFieldPath: spec.writeConnectionSecretsToNamespace
 
-          # All Helm releases derive their labels and annotations from the XR.
-          - fromFieldPath: metadata.labels
-            toFieldPath: metadata.labels
+        # All Helm releases derive their labels and annotations from the XR.
+        - fromFieldPath: metadata.labels
+          toFieldPath: metadata.labels
 
-          - fromFieldPath: metadata.annotations
-            toFieldPath: metadata.annotations
+        - fromFieldPath: metadata.annotations
+          toFieldPath: metadata.annotations
 
-          # All Helm releases derive the ProviderConfig to use from the XR.
-          - fromFieldPath: spec.providerConfigRef.name
-            toFieldPath: spec.providerConfigRef.name
+        # All Helm releases derive the ProviderConfig to use from the XR.
+        - fromFieldPath: spec.providerConfigRef.name
+          toFieldPath: spec.providerConfigRef.name
 
-          - fromFieldPath: spec.destination_namespace
-            toFieldPath: spec.forProvider.namespace
-          - fromFieldPath: spec.prometheus.source_repo
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.prometheus.chart_name
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.prometheus.version
-            toFieldPath: spec.forProvider.chart.version
-          - fromFieldPath: spec.prometheus.values
-            toFieldPath: spec.forProvider.chart.values
+        - fromFieldPath: spec.destination_namespace
+          toFieldPath: spec.forProvider.namespace
+        - fromFieldPath: spec.vouch.source_repo
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.vouch.chart_name
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.vouch.version
+          toFieldPath: spec.forProvider.chart.version
+        - fromFieldPath: spec.vouch.values
+          toFieldPath: spec.forProvider.chart.values
+    - base:
+        apiVersion: helm.crossplane.io/v1beta1
+        kind: Release
+        spec:
+          rollbackLimit: 3
+          forProvider:
+            skipCreateNamespace: false
+      patches:
+        - fromFieldPath: spec.namespace
+          toFieldPath: spec.writeConnectionSecretsToNamespace
+
+        # All Helm releases derive their labels and annotations from the XR.
+        - fromFieldPath: metadata.labels
+          toFieldPath: metadata.labels
+
+        - fromFieldPath: metadata.annotations
+          toFieldPath: metadata.annotations
+
+        # All Helm releases derive the ProviderConfig to use from the XR.
+        - fromFieldPath: spec.providerConfigRef.name
+          toFieldPath: spec.providerConfigRef.name
+
+        - fromFieldPath: spec.destination_namespace
+          toFieldPath: spec.forProvider.namespace
+        - fromFieldPath: spec.kubernetes_external_secrets.source_repo
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.kubernetes_external_secrets.chart_name
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.kubernetes_external_secrets.version
+          toFieldPath: spec.forProvider.chart.version
+        - fromFieldPath: spec.kubernetes_external_secrets.values
+          toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -284,28 +247,61 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
-        patches:
-          - fromFieldPath: spec.namespace
-            toFieldPath: spec.writeConnectionSecretsToNamespace
+      patches:
+        - fromFieldPath: spec.namespace
+          toFieldPath: spec.writeConnectionSecretsToNamespace
 
-          # All Helm releases derive their labels and annotations from the XR.
-          - fromFieldPath: metadata.labels
-            toFieldPath: metadata.labels
+        # All Helm releases derive their labels and annotations from the XR.
+        - fromFieldPath: metadata.labels
+          toFieldPath: metadata.labels
 
-          - fromFieldPath: metadata.annotations
-            toFieldPath: metadata.annotations
+        - fromFieldPath: metadata.annotations
+          toFieldPath: metadata.annotations
 
-          # All Helm releases derive the ProviderConfig to use from the XR.
-          - fromFieldPath: spec.providerConfigRef.name
-            toFieldPath: spec.providerConfigRef.name
+        # All Helm releases derive the ProviderConfig to use from the XR.
+        - fromFieldPath: spec.providerConfigRef.name
+          toFieldPath: spec.providerConfigRef.name
 
-          - fromFieldPath: spec.destination_namespace
-            toFieldPath: spec.forProvider.namespace
-          - fromFieldPath: spec.velero.source_repo
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.velero.chart_name
-            toFieldPath: spec.forProvider.chart.name
-          - fromFieldPath: spec.velero.version
-            toFieldPath: spec.forProvider.chart.version
-          - fromFieldPath: spec.velero.values
-            toFieldPath: spec.forProvider.chart.values
+        - fromFieldPath: spec.destination_namespace
+          toFieldPath: spec.forProvider.namespace
+        - fromFieldPath: spec.prometheus.source_repo
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.prometheus.chart_name
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.prometheus.version
+          toFieldPath: spec.forProvider.chart.version
+        - fromFieldPath: spec.prometheus.values
+          toFieldPath: spec.forProvider.chart.values
+
+    - base:
+        apiVersion: helm.crossplane.io/v1beta1
+        kind: Release
+        spec:
+          rollbackLimit: 3
+          forProvider:
+            skipCreateNamespace: false
+      patches:
+        - fromFieldPath: spec.namespace
+          toFieldPath: spec.writeConnectionSecretsToNamespace
+
+        # All Helm releases derive their labels and annotations from the XR.
+        - fromFieldPath: metadata.labels
+          toFieldPath: metadata.labels
+
+        - fromFieldPath: metadata.annotations
+          toFieldPath: metadata.annotations
+
+        # All Helm releases derive the ProviderConfig to use from the XR.
+        - fromFieldPath: spec.providerConfigRef.name
+          toFieldPath: spec.providerConfigRef.name
+
+        - fromFieldPath: spec.destination_namespace
+          toFieldPath: spec.forProvider.namespace
+        - fromFieldPath: spec.velero.source_repo
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.velero.chart_name
+          toFieldPath: spec.forProvider.chart.name
+        - fromFieldPath: spec.velero.version
+          toFieldPath: spec.forProvider.chart.version
+        - fromFieldPath: spec.velero.values
+          toFieldPath: spec.forProvider.chart.values
