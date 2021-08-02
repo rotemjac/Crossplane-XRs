@@ -103,20 +103,194 @@ spec:
                           description: Namespace were all cluster services will be located.
                           default: "ops"
 
-                        ##
-                        operators:
+                        #
+                        aws_node_termination_handler:
                           type: object
-                          description: Configuration for services which runs as operators.
+                          description: Configuration for the aws node termination handler.
                           properties:
+                            source_repo:
+                              type: string
+                              description: AWS node termination handler source repo.
 
-                            ###
-                            prometheus:
+                            chart_name:
+                              type: string
+                              description: AWS node termination handler chart name.
+
+                            version:
+                              type: string
+                              description: AWS node termination handler version to run.
+
+                            values:
                               type: object
-                              description: Configuration for the Prometheus operator.
-                              properties:
-                                version:
-                                  type: string
-                                  description: Prometheus operator version to run.
+                              description: AWS node termination handler values.
+
+                        #
+                        cluster_autoscaler:
+                          type: object
+                          description: Configuration for the Cluster autoscaler.
+                          properties:
+                            source_repo:
+                              type: string
+                              description: Cluster autoscaler source repo.
+
+                            chart_name:
+                              type: string
+                              description: Cluster autoscaler chart name.
+
+                            version:
+                              type: string
+                              description: Cluster autoscaler version to run.
+
+                            values:
+                              type: object
+                              description: Cluster autoscaler values.
+
+                        #
+                        external_dns:
+                          type: object
+                          description: Configuration for the External DNS.
+                          properties:
+                            source_repo:
+                              type: string
+                              description: External DNS source repo.
+
+                            chart_name:
+                              type: string
+                              description: External DNS chart name.
+
+                            version:
+                              type: string
+                              description: External DNS version to run.
+
+                            values:
+                              type: object
+                              description: External DNS values.
+
+                        #
+                        cert_manager:
+                          type: object
+                          description: Configuration for the Cert manager.
+                          properties:
+                            source_repo:
+                              type: string
+                              description: Cert manager source repo.
+
+                            chart_name:
+                              type: string
+                              description: Cert manager chart name.
+
+                            version:
+                              type: string
+                              description: Cert manager version to run.
+
+                            values:
+                              type: object
+                              description: Cert manager values.
+
+                        #
+                        ingress_nginx:
+                          type: object
+                          description: Configuration for the Ingress nginx.
+                          properties:
+                            source_repo:
+                              type: string
+                              description: Ingress nginx source repo.
+
+                            chart_name:
+                              type: string
+                              description: Ingress nginx chart name.
+
+                            version:
+                              type: string
+                              description: Ingress nginx version to run.
+
+                            values:
+                              type: object
+                              description: Ingress nginx values.
+
+                        #
+                        vouch:
+                          type: object
+                          description: Configuration for Vouch Proxy.
+                          properties:
+                            source_repo:
+                              type: string
+                              description: Vouch Proxy source repo.
+
+                            chart_name:
+                              type: string
+                              description: Vouch Proxy chart name.
+
+                            version:
+                              type: string
+                              description: Vouch Proxy version to run.
+
+                            values:
+                              type: object
+                              description: Vouch Proxy values.
+
+                        #
+                        kubernetes_external_secrets:
+                          type: object
+                          description: Configuration for Kubernetes external secrets.
+                          properties:
+                            source_repo:
+                              type: string
+                              description: Kubernetes external secrets source repo.
+
+                            chart_name:
+                              type: string
+                              description: Kubernetes external secrets chart name.
+
+                            version:
+                              type: string
+                              description: Kubernetes external secrets version to run.
+
+                            values:
+                              type: object
+                              description: Kubernetes external secrets values.
+
+                        #
+                        prometheus:
+                          type: object
+                          description: Configuration for the Prometheus operator.
+                          properties:
+                            source_repo:
+                              type: string
+                              description: Prometheus source repo.
+
+                            chart_name:
+                              type: string
+                              description: Prometheus chart name.
+
+                            version:
+                              type: string
+                              description: Prometheus operator version to run.
+
+                            values:
+                              type: object
+                              description: Prometheus values.
+
+                        #
+                        velero:
+                          type: object
+                          description: Configuration for Velero.
+                          properties:
+                            source_repo:
+                              type: string
+                              description: Velero source repo.
+
+                            chart_name:
+                              type: string
+                              description: Velero chart name.
+
+                            version:
+                              type: string
+                              description: Velero version to run.
+
+                            values:
+                              type: object
+                              description: Velero values.
 
                   required:
                     - region

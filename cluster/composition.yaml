@@ -70,8 +70,94 @@ spec:
           toFieldPath: spec.providerConfigRef.name
 
         - fromFieldPath: spec.parameters.services.destination_namespace
-          toFieldPath: spec.operators.destination_namespace
+          toFieldPath: spec.destination_namespace
 
-        - fromFieldPath: spec.parameters.services.operators.prometheus.version
-          toFieldPath: spec.operators.prometheus.version
+          # aws_node_termination_handler
+        - fromFieldPath: spec.parameters.services.aws_node_termination_handler.source_repo
+          toFieldPath: spec.aws_node_termination_handler.source_repo
+        - fromFieldPath: spec.parameters.services.aws_node_termination_handler.chart_name
+          toFieldPath: spec.aws_node_termination_handler.chart_name
+        - fromFieldPath: spec.parameters.services.aws_node_termination_handler.version
+          toFieldPath: spec.aws_node_termination_handler.version
+        - fromFieldPath: spec.parameters.services.aws_node_termination_handler.values
+          toFieldPath: spec.aws_node_termination_handler.values
 
+          # cluster_autoscaler
+        - fromFieldPath: spec.parameters.services.cluster_autoscaler.source_repo
+          toFieldPath: spec.cluster_autoscaler.source_repo
+        - fromFieldPath: spec.parameters.services.cluster_autoscaler.chart_name
+          toFieldPath: spec.cluster_autoscaler.chart_name
+        - fromFieldPath: spec.parameters.services.cluster_autoscaler.version
+          toFieldPath: spec.cluster_autoscaler.version
+        - fromFieldPath: spec.parameters.services.cluster_autoscaler.values
+          toFieldPath: spec.cluster_autoscaler.values
+
+          # external_dns
+        - fromFieldPath: spec.parameters.services.external_dns.source_repo
+          toFieldPath: spec.external_dns.source_repo
+        - fromFieldPath: spec.parameters.services.external_dns.chart_name
+          toFieldPath: spec.external_dns.chart_name
+        - fromFieldPath: spec.parameters.services.external_dns.version
+          toFieldPath: spec.external_dns.version
+        - fromFieldPath: spec.parameters.services.external_dns.values
+          toFieldPath: spec.external_dns.values
+
+          # cert_manager
+        - fromFieldPath: spec.parameters.services.cert_manager.source_repo
+          toFieldPath: spec.cert_manager.source_repo
+        - fromFieldPath: spec.parameters.services.cert_manager.chart_name
+          toFieldPath: spec.cert_manager.chart_name
+        - fromFieldPath: spec.parameters.services.cert_manager.version
+          toFieldPath: spec.cert_manager.version
+        - fromFieldPath: spec.parameters.services.cert_manager.values
+          toFieldPath: spec.cert_manager.values
+
+          # ingress_nginx
+        - fromFieldPath: spec.parameters.services.ingress_nginx.source_repo
+          toFieldPath: spec.ingress_nginx.source_repo
+        - fromFieldPath: spec.parameters.services.ingress_nginx.chart_name
+          toFieldPath: spec.ingress_nginx.chart_name
+        - fromFieldPath: spec.parameters.services.ingress_nginx.version
+          toFieldPath: spec.ingress_nginx.version
+        - fromFieldPath: spec.parameters.services.ingress_nginx.values
+          toFieldPath: spec.ingress_nginx.values
+
+          # vouch
+        - fromFieldPath: spec.parameters.services.vouch.source_repo
+          toFieldPath: spec.vouch.source_repo
+        - fromFieldPath: spec.parameters.services.vouch.chart_name
+          toFieldPath: spec.vouch.chart_name
+        - fromFieldPath: spec.parameters.services.vouch.version
+          toFieldPath: spec.vouch.version
+        - fromFieldPath: spec.parameters.services.vouch.values
+          toFieldPath: spec.vouch.values
+
+          # kubernetes_external_secrets
+        - fromFieldPath: spec.parameters.services.kubernetes_external_secrets.source_repo
+          toFieldPath: spec.kubernetes_external_secrets.source_repo
+        - fromFieldPath: spec.parameters.services.kubernetes_external_secrets.chart_name
+          toFieldPath: spec.kubernetes_external_secrets.chart_name
+        - fromFieldPath: spec.parameters.services.kubernetes_external_secrets.version
+          toFieldPath: spec.kubernetes_external_secrets.version
+        - fromFieldPath: spec.parameters.services.kubernetes_external_secrets.values
+          toFieldPath: spec.kubernetes_external_secrets.values
+
+          # prometheus
+        - fromFieldPath: spec.parameters.services.prometheus.source_repo
+          toFieldPath: spec.prometheus.source_repo
+        - fromFieldPath: spec.parameters.services.prometheus.chart_name
+          toFieldPath: spec.prometheus.chart_name
+        - fromFieldPath: spec.parameters.services.prometheus.version
+          toFieldPath: spec.prometheus.version
+        - fromFieldPath: spec.parameters.services.prometheus.values
+          toFieldPath: spec.prometheus.values
+
+          # velero
+        - fromFieldPath: spec.parameters.services.velero.source_repo
+          toFieldPath: spec.velero.source_repo
+        - fromFieldPath: spec.parameters.services.velero.chart_name
+          toFieldPath: spec.velero.chart_name
+        - fromFieldPath: spec.parameters.services.velero.version
+          toFieldPath: spec.velero.version
+        - fromFieldPath: spec.parameters.services.velero.values
+          toFieldPath: spec.velero.values
