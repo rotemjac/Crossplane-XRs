@@ -43,10 +43,10 @@ spec:
                       description: AWS node termination handler version.
                       default: "0.15.2"
 
-                    values:
-                      type: object
-                      description: AWS node termination handler values.
-                      default: {}
+                    #values:
+                    #  type: object
+                    #  description: AWS node termination handler values.
+                    #  default: {}
 
 
                 ###
@@ -67,10 +67,10 @@ spec:
                       description: Cluster autoscaler version.
                       default: "9.10.3"
 
-                    values:
-                      type: object
-                      description: Cluster autoscaler values.
-                      default: {}
+                    #values:
+                    #  type: object
+                    #  description: Cluster autoscaler values.
+                    #  default: {}
 
                 ###
                 external_dns:
@@ -90,10 +90,10 @@ spec:
                       description: External DNS version.
                       default: "4.11.0"
 
-                    values:
-                      type: object
-                      description: External DNS values.
-                      default: {}
+                    #values:
+                    #  type: object
+                    #  description: External DNS values.
+                    #  default: {}
 
                 ###
                 cert_manager:
@@ -113,10 +113,10 @@ spec:
                       description: Cert manager version.
                       default: "0.12.0"
 
-                    values:
-                      type: object
-                      description: Cert manager values.
-                      default: {}
+                    #values:
+                    #  type: object
+                    #  description: Cert manager values.
+                    #  default: {}
 
                 ###
                 ingress_nginx:
@@ -136,10 +136,10 @@ spec:
                       description: Ingress nginx version.
                       default: "3.29.0"
 
-                    values:
-                      type: object
-                      description: Ingress nginx values.
-                      default: {}
+                    #values:
+                    #  type: object
+                    #  description: Ingress nginx values.
+                    #  default: {}
 
                 ###
                 vouch:
@@ -159,10 +159,10 @@ spec:
                       description: Vouch proxy version.
                       default: "3.29.0"
 
-                    values:
-                      type: object
-                      description: Vouch proxy values.
-                      default: {}
+                    #values:
+                    #  type: object
+                    #  description: Vouch proxy values.
+                    #  default: {}
 
                 ###
                 kubernetes_external_secrets:
@@ -182,10 +182,10 @@ spec:
                       description: Kubernetes external secrets version.
                       default: "8.2.3"
 
-                    values:
-                      type: object
-                      description: Kubernetes external secrets values.
-                      default: {}
+                    #values:
+                    #  type: object
+                    #  description: Kubernetes external secrets values.
+                    #  default: {}
 
                 ###
                 prometheus:
@@ -205,10 +205,10 @@ spec:
                       description: Prometheus operator version to run.
                       default: "10.1.0"
 
-                    values:
-                      type: object
-                      description: Prometheus operator values.
-                      default: {}
+                    #values:
+                    #  type: object
+                    #  description: Prometheus operator values.
+                    #  default: {}
 
                 ###
                 velero:
@@ -228,10 +228,10 @@ spec:
                       description: Velero version to run.
                       default: "2.17.2"
 
-                    values:
-                      type: object
-                      description: Velero values.
-                      default: {}
+                    #values:
+                    #  type: object
+                    #  description: Velero values.
+                    #  default: {}
 
                 providerConfigRef:
                   type: object

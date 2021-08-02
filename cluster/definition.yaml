@@ -120,10 +120,10 @@ spec:
                               type: string
                               description: AWS node termination handler version to run.
 
-                            values:
-                              type: object
-                              description: AWS node termination handler values.
-                              default: {}
+                            #values:
+                            #  type: object
+                            #  description: AWS node termination handler values.
+                            #  default: {}
 
                         #
                         cluster_autoscaler:
@@ -142,10 +142,10 @@ spec:
                               type: string
                               description: Cluster autoscaler version to run.
 
-                            values:
-                              type: object
-                              description: Cluster autoscaler values.
-                              default: {}
+                            #values:
+                            #  type: object
+                            #  description: Cluster autoscaler values.
+                            #  default: {}
 
                         #
                         external_dns:
@@ -164,10 +164,10 @@ spec:
                               type: string
                               description: External DNS version to run.
 
-                            values:
-                              type: object
-                              description: External DNS values.
-                              default: {}
+                            #values:
+                            #  type: object
+                            #  description: External DNS values.
+                            #  default: {}
 
                         #
                         cert_manager:
@@ -186,10 +186,10 @@ spec:
                               type: string
                               description: Cert manager version to run.
 
-                            values:
-                              type: object
-                              description: Cert manager values.
-                              default: {}
+                            #values:
+                            #  type: object
+                            #  description: Cert manager values.
+                            #  default: {}
 
                         #
                         ingress_nginx:
@@ -208,10 +208,10 @@ spec:
                               type: string
                               description: Ingress nginx version to run.
 
-                            values:
-                              type: object
-                              description: Ingress nginx values.
-                              default: {}
+                            #values:
+                            #  type: object
+                            #  description: Ingress nginx values.
+                            #  default: {}
 
                         #
                         vouch:
@@ -230,10 +230,10 @@ spec:
                               type: string
                               description: Vouch Proxy version to run.
 
-                            values:
-                              type: object
-                              description: Vouch Proxy values.
-                              default: {}
+                            #values:
+                            #  type: object
+                            #  description: Vouch Proxy values.
+                            #  default: {}
 
                         #
                         kubernetes_external_secrets:
@@ -252,10 +252,10 @@ spec:
                               type: string
                               description: Kubernetes external secrets version to run.
 
-                            values:
-                              type: object
-                              description: Kubernetes external secrets values.
-                              default: {}
+                            #values:
+                            #  type: object
+                            #  description: Kubernetes external secrets values.
+                            #  default: {}
 
                         #
                         prometheus:
@@ -274,10 +274,10 @@ spec:
                               type: string
                               description: Prometheus operator version to run.
 
-                            values:
-                              type: object
-                              description: Prometheus values.
-                              default: {}
+                            #values:
+                            #  type: object
+                            #  description: Prometheus values.
+                            #  default: {}
 
                         #
                         velero:
@@ -296,10 +296,10 @@ spec:
                               type: string
                               description: Velero version to run.
 
-                            values:
-                              type: object
-                              description: Velero values.
-                              default: {}
+                            #values:
+                            #  type: object
+                            #  description: Velero values.
+                            #  default: {}
 
                   required:
                     - region

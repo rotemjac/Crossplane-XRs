@@ -79,8 +79,8 @@ spec:
           toFieldPath: spec.aws_node_termination_handler.chart_name
         - fromFieldPath: spec.parameters.services.aws_node_termination_handler.version
           toFieldPath: spec.aws_node_termination_handler.version
-        - fromFieldPath: spec.parameters.services.aws_node_termination_handler.values
-          toFieldPath: spec.aws_node_termination_handler.values
+        #- fromFieldPath: spec.parameters.services.aws_node_termination_handler.values
+        #  toFieldPath: spec.aws_node_termination_handler.values
 
           # cluster_autoscaler
         - fromFieldPath: spec.parameters.services.cluster_autoscaler.source_repo
@@ -89,8 +89,8 @@ spec:
           toFieldPath: spec.cluster_autoscaler.chart_name
         - fromFieldPath: spec.parameters.services.cluster_autoscaler.version
           toFieldPath: spec.cluster_autoscaler.version
-        - fromFieldPath: spec.parameters.services.cluster_autoscaler.values
-          toFieldPath: spec.cluster_autoscaler.values
+        #- fromFieldPath: spec.parameters.services.cluster_autoscaler.values
+        #  toFieldPath: spec.cluster_autoscaler.values
 
           # external_dns
         - fromFieldPath: spec.parameters.services.external_dns.source_repo
@@ -99,8 +99,8 @@ spec:
           toFieldPath: spec.external_dns.chart_name
         - fromFieldPath: spec.parameters.services.external_dns.version
           toFieldPath: spec.external_dns.version
-        - fromFieldPath: spec.parameters.services.external_dns.values
-          toFieldPath: spec.external_dns.values
+        #- fromFieldPath: spec.parameters.services.external_dns.values
+        #  toFieldPath: spec.external_dns.values
 
           # cert_manager
         - fromFieldPath: spec.parameters.services.cert_manager.source_repo
@@ -109,8 +109,8 @@ spec:
           toFieldPath: spec.cert_manager.chart_name
         - fromFieldPath: spec.parameters.services.cert_manager.version
           toFieldPath: spec.cert_manager.version
-        - fromFieldPath: spec.parameters.services.cert_manager.values
-          toFieldPath: spec.cert_manager.values
+        #- fromFieldPath: spec.parameters.services.cert_manager.values
+        #  toFieldPath: spec.cert_manager.values
 
           # ingress_nginx
         - fromFieldPath: spec.parameters.services.ingress_nginx.source_repo
@@ -119,8 +119,8 @@ spec:
           toFieldPath: spec.ingress_nginx.chart_name
         - fromFieldPath: spec.parameters.services.ingress_nginx.version
           toFieldPath: spec.ingress_nginx.version
-        - fromFieldPath: spec.parameters.services.ingress_nginx.values
-          toFieldPath: spec.ingress_nginx.values
+        #- fromFieldPath: spec.parameters.services.ingress_nginx.values
+        #  toFieldPath: spec.ingress_nginx.values
 
           # vouch
         - fromFieldPath: spec.parameters.services.vouch.source_repo
@@ -129,8 +129,8 @@ spec:
           toFieldPath: spec.vouch.chart_name
         - fromFieldPath: spec.parameters.services.vouch.version
           toFieldPath: spec.vouch.version
-        - fromFieldPath: spec.parameters.services.vouch.values
-          toFieldPath: spec.vouch.values
+        #- fromFieldPath: spec.parameters.services.vouch.values
+        #  toFieldPath: spec.vouch.values
 
           # kubernetes_external_secrets
         - fromFieldPath: spec.parameters.services.kubernetes_external_secrets.source_repo
@@ -139,8 +139,8 @@ spec:
           toFieldPath: spec.kubernetes_external_secrets.chart_name
         - fromFieldPath: spec.parameters.services.kubernetes_external_secrets.version
           toFieldPath: spec.kubernetes_external_secrets.version
-        - fromFieldPath: spec.parameters.services.kubernetes_external_secrets.values
-          toFieldPath: spec.kubernetes_external_secrets.values
+        #- fromFieldPath: spec.parameters.services.kubernetes_external_secrets.values
+        #  toFieldPath: spec.kubernetes_external_secrets.values
 
           # prometheus
         - fromFieldPath: spec.parameters.services.prometheus.source_repo
@@ -149,8 +149,8 @@ spec:
           toFieldPath: spec.prometheus.chart_name
         - fromFieldPath: spec.parameters.services.prometheus.version
           toFieldPath: spec.prometheus.version
-        - fromFieldPath: spec.parameters.services.prometheus.values
-          toFieldPath: spec.prometheus.values
+        #- fromFieldPath: spec.parameters.services.prometheus.values
+        #  toFieldPath: spec.prometheus.values
 
           # velero
         - fromFieldPath: spec.parameters.services.velero.source_repo
@@ -159,5 +159,5 @@ spec:
           toFieldPath: spec.velero.chart_name
         - fromFieldPath: spec.parameters.services.velero.version
           toFieldPath: spec.velero.version
-        - fromFieldPath: spec.parameters.services.velero.values
-          toFieldPath: spec.velero.values
+        #- fromFieldPath: spec.parameters.services.velero.values
+        #  toFieldPath: spec.velero.values

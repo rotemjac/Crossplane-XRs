@@ -40,8 +40,8 @@ spec:
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.aws_node_termination_handler.version
           toFieldPath: spec.forProvider.chart.version
-        - fromFieldPath: spec.aws_node_termination_handler.values
-          toFieldPath: spec.forProvider.chart.values
+        #- fromFieldPath: spec.aws_node_termination_handler.values
+        #  toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -73,8 +73,8 @@ spec:
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.cluster_autoscaler.version
           toFieldPath: spec.forProvider.chart.version
-        - fromFieldPath: spec.cluster_autoscaler.values
-          toFieldPath: spec.forProvider.chart.values
+        #- fromFieldPath: spec.cluster_autoscaler.values
+        #  toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -106,8 +106,8 @@ spec:
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.external_dns.version
           toFieldPath: spec.forProvider.chart.version
-        - fromFieldPath: spec.external_dns.values
-          toFieldPath: spec.forProvider.chart.values
+        #- fromFieldPath: spec.external_dns.values
+        #  toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -139,8 +139,8 @@ spec:
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.cert_manager.version
           toFieldPath: spec.forProvider.chart.version
-        - fromFieldPath: spec.cert_manager.values
-          toFieldPath: spec.forProvider.chart.values
+        #- fromFieldPath: spec.cert_manager.values
+        #  toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -172,8 +172,8 @@ spec:
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.ingress_nginx.version
           toFieldPath: spec.forProvider.chart.version
-        - fromFieldPath: spec.ingress_nginx.values
-          toFieldPath: spec.forProvider.chart.values
+        #- fromFieldPath: spec.ingress_nginx.values
+        #  toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -205,8 +205,9 @@ spec:
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.vouch.version
           toFieldPath: spec.forProvider.chart.version
-        - fromFieldPath: spec.vouch.values
-          toFieldPath: spec.forProvider.chart.values
+        #- fromFieldPath: spec.vouch.values
+        #  toFieldPath: spec.forProvider.chart.values
+
     - base:
         apiVersion: helm.crossplane.io/v1beta1
         kind: Release
@@ -237,8 +238,8 @@ spec:
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.kubernetes_external_secrets.version
           toFieldPath: spec.forProvider.chart.version
-        - fromFieldPath: spec.kubernetes_external_secrets.values
-          toFieldPath: spec.forProvider.chart.values
+        #- fromFieldPath: spec.kubernetes_external_secrets.values
+        #  toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -270,8 +271,8 @@ spec:
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.prometheus.version
           toFieldPath: spec.forProvider.chart.version
-        - fromFieldPath: spec.prometheus.values
-          toFieldPath: spec.forProvider.chart.values
+        #- fromFieldPath: spec.prometheus.values
+        #  toFieldPath: spec.forProvider.chart.values
 
     - base:
         apiVersion: helm.crossplane.io/v1beta1
@@ -303,5 +304,5 @@ spec:
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.velero.version
           toFieldPath: spec.forProvider.chart.version
-        - fromFieldPath: spec.velero.values
-          toFieldPath: spec.forProvider.chart.values
+        #- fromFieldPath: spec.velero.values
+        #  toFieldPath: spec.forProvider.chart.values
