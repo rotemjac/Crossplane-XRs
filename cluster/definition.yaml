@@ -123,6 +123,7 @@ spec:
                             values:
                               type: object
                               description: AWS node termination handler values.
+                              default: {}
 
                         #
                         cluster_autoscaler:
@@ -144,6 +145,7 @@ spec:
                             values:
                               type: object
                               description: Cluster autoscaler values.
+                              default: {}
 
                         #
                         external_dns:
@@ -165,6 +167,7 @@ spec:
                             values:
                               type: object
                               description: External DNS values.
+                              default: {}
 
                         #
                         cert_manager:
@@ -186,6 +189,7 @@ spec:
                             values:
                               type: object
                               description: Cert manager values.
+                              default: {}
 
                         #
                         ingress_nginx:
@@ -207,6 +211,7 @@ spec:
                             values:
                               type: object
                               description: Ingress nginx values.
+                              default: {}
 
                         #
                         vouch:
@@ -228,6 +233,7 @@ spec:
                             values:
                               type: object
                               description: Vouch Proxy values.
+                              default: {}
 
                         #
                         kubernetes_external_secrets:
@@ -249,6 +255,7 @@ spec:
                             values:
                               type: object
                               description: Kubernetes external secrets values.
+                              default: {}
 
                         #
                         prometheus:
@@ -270,6 +277,7 @@ spec:
                             values:
                               type: object
                               description: Prometheus values.
+                              default: {}
 
                         #
                         velero:
@@ -291,6 +299,7 @@ spec:
                             values:
                               type: object
                               description: Velero values.
+                              default: {}
 
                   required:
                     - region
