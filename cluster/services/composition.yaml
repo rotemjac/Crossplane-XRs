@@ -18,9 +18,9 @@ spec:
             rollbackLimit: 3
             forProvider:
               skipCreateNamespace: false
-            #namespace: ops # Set below
-            #chart:  {}     # Set below
-            #values: {}     # Set below
+              #namespace: ops # Set below
+              #chart:  {}     # Set below
+              values: {}
       patches:
         - fromFieldPath: spec.namespace
           toFieldPath: spec.writeConnectionSecretsToNamespace
@@ -50,6 +50,7 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
+            values: {}
       patches:
         - fromFieldPath: spec.namespace
           toFieldPath: spec.writeConnectionSecretsToNamespace
@@ -83,6 +84,7 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
+            values: {}
       patches:
         - fromFieldPath: spec.namespace
           toFieldPath: spec.writeConnectionSecretsToNamespace
@@ -116,6 +118,7 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
+            values: {}
       patches:
         - fromFieldPath: spec.namespace
           toFieldPath: spec.writeConnectionSecretsToNamespace
@@ -149,6 +152,7 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
+            values: {}
       patches:
         - fromFieldPath: spec.namespace
           toFieldPath: spec.writeConnectionSecretsToNamespace
@@ -182,6 +186,7 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
+            values: {}
       patches:
         - fromFieldPath: spec.namespace
           toFieldPath: spec.writeConnectionSecretsToNamespace
@@ -215,6 +220,7 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
+            values: {}
       patches:
         - fromFieldPath: spec.namespace
           toFieldPath: spec.writeConnectionSecretsToNamespace
@@ -248,6 +254,7 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
+            values: {}
       patches:
         - fromFieldPath: spec.namespace
           toFieldPath: spec.writeConnectionSecretsToNamespace
@@ -281,6 +288,7 @@ spec:
           rollbackLimit: 3
           forProvider:
             skipCreateNamespace: false
+            values: {}
       patches:
         - fromFieldPath: spec.namespace
           toFieldPath: spec.writeConnectionSecretsToNamespace
