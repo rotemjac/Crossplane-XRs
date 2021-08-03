@@ -35,7 +35,7 @@ spec:
         - fromFieldPath: spec.destination_namespace
           toFieldPath: spec.forProvider.namespace
         - fromFieldPath: spec.aws_node_termination_handler.source_repo
-          toFieldPath: spec.forProvider.chart.name
+          toFieldPath: spec.forProvider.chart.repository
         - fromFieldPath: spec.aws_node_termination_handler.chart_name
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.aws_node_termination_handler.version
@@ -69,7 +69,7 @@ spec:
         - fromFieldPath: spec.destination_namespace
           toFieldPath: spec.forProvider.namespace
         - fromFieldPath: spec.cluster_autoscaler.source_repo
-          toFieldPath: spec.forProvider.chart.name
+          toFieldPath: spec.forProvider.chart.repository
         - fromFieldPath: spec.cluster_autoscaler.chart_name
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.cluster_autoscaler.version
@@ -103,7 +103,7 @@ spec:
         - fromFieldPath: spec.destination_namespace
           toFieldPath: spec.forProvider.namespace
         - fromFieldPath: spec.external_dns.source_repo
-          toFieldPath: spec.forProvider.chart.name
+          toFieldPath: spec.forProvider.chart.repository
         - fromFieldPath: spec.external_dns.chart_name
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.external_dns.version
@@ -137,7 +137,7 @@ spec:
         - fromFieldPath: spec.destination_namespace
           toFieldPath: spec.forProvider.namespace
         - fromFieldPath: spec.cert_manager.source_repo
-          toFieldPath: spec.forProvider.chart.name
+          toFieldPath: spec.forProvider.chart.repository
         - fromFieldPath: spec.cert_manager.chart_name
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.cert_manager.version
@@ -171,7 +171,7 @@ spec:
         - fromFieldPath: spec.destination_namespace
           toFieldPath: spec.forProvider.namespace
         - fromFieldPath: spec.ingress_nginx.source_repo
-          toFieldPath: spec.forProvider.chart.name
+          toFieldPath: spec.forProvider.chart.repository
         - fromFieldPath: spec.ingress_nginx.chart_name
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.ingress_nginx.version
@@ -205,7 +205,7 @@ spec:
         - fromFieldPath: spec.destination_namespace
           toFieldPath: spec.forProvider.namespace
         - fromFieldPath: spec.vouch.source_repo
-          toFieldPath: spec.forProvider.chart.name
+          toFieldPath: spec.forProvider.chart.repository
         - fromFieldPath: spec.vouch.chart_name
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.vouch.version
@@ -239,7 +239,7 @@ spec:
         - fromFieldPath: spec.destination_namespace
           toFieldPath: spec.forProvider.namespace
         - fromFieldPath: spec.kubernetes_external_secrets.source_repo
-          toFieldPath: spec.forProvider.chart.name
+          toFieldPath: spec.forProvider.chart.repository
         - fromFieldPath: spec.kubernetes_external_secrets.chart_name
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.kubernetes_external_secrets.version
@@ -273,7 +273,7 @@ spec:
         - fromFieldPath: spec.destination_namespace
           toFieldPath: spec.forProvider.namespace
         - fromFieldPath: spec.prometheus.source_repo
-          toFieldPath: spec.forProvider.chart.name
+          toFieldPath: spec.forProvider.chart.repository
         - fromFieldPath: spec.prometheus.chart_name
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.prometheus.version
@@ -307,7 +307,7 @@ spec:
         - fromFieldPath: spec.destination_namespace
           toFieldPath: spec.forProvider.namespace
         - fromFieldPath: spec.velero.source_repo
-          toFieldPath: spec.forProvider.chart.name
+          toFieldPath: spec.forProvider.chart.repository
         - fromFieldPath: spec.velero.chart_name
           toFieldPath: spec.forProvider.chart.name
         - fromFieldPath: spec.velero.version
